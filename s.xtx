@@ -1,0 +1,11 @@
+            <!-- Left Card: Profile -->
+            <div class="about-card profile-card">
+              <img src="ME.jpeg" alt="Aradhya Gaonkar" class="profile-img" />
+              <h2>Aradhya Gaonkar</h2>
+              <p>Obsessive Builder, CS-AI @ KLE Tech</p>
+              <div class="social-icons">
+                <a href="https://github.com/AradhyaSpace11" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/aradhya-gaonkar-p27" target="_blank">LinkedIn</a>
+                <a href="mailto:gaonkararadhya2711@gmail.com">Email</a>
+              </div>
+            </div>

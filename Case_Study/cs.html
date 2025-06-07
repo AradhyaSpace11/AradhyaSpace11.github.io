@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Algorithm Case Studies</title>
+    <link rel="stylesheet" href="cs_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+</head>
+<body style="background-color: black; padding: 20px; margin: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+
+    <div id="intro-video-container">
+        <video id="intro-video" autoplay muted playsinline>
+            <source src="apple_page_entry_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <h1 style="color: white; font-size: 40px; font-weight: 700;">Graph Traversal: A* Algorithm in Apple Maps</h1>
+    <h2>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</h2>
+
+    <div class="Algorithm-container">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="purple_gradient.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="Algorithm-Upper">
+
+
+
+            <div class="Understand-Algorithm">
+
+                <h1 style="font-size: 70px; margin: 0px;">
+                    The <span class="transparent-text">A*</span> Algorithm
+                </h1>
+                  
+    
+                <h3>A popular pathfinding algorithm used in many applications, including Apple Maps. It finds the shortest path between two points on a graph by exploring the graph in a way that prioritizes paths closer to the goal.</h3>
+                <br>
+                <br>
+                <h1 style="color: white; margin-top: -10px;">Where does Apple Use it?</h1>
+
+                <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+
+                    
+                        <img src="maps_logo.png" alt="" style="width: 300px; height: auto;">
+                    
+
+                    <div class="simple-card" style="border-style:double;border-color:#000000; border-left: 7px solid #1277f3; width:400px; height:260px; border-radius:40px; padding:20px; margin-left:30px;background-color:rgb(28, 28, 28)">
+                        <h2 style="margin-top:-5px; margin-bottom:-10px; color:rgb(0, 119, 255)">Apple Maps</h2>
+                        <ul>
+                            <li style="font-size:20px">Apple Maps models roads and paths as a graph of nodes and edges.</li>
+                            <li style="font-size:20px">A* searches this graph by combining actual travel cost (g) and estimated distance to destination (h).</li>
+                            <li style="font-size:20px">It finds the fastest or shortest route using real-time traffic and heuristics like straight-line distance.</li>
+                        </ul>
+                        
+
+                    </div>
+                    
+                    
+                </div>
+    
+            </div>
+    
+            <div class="Algorithm-Steps">
+    
+                <h1 style="color: rgb(0, 225, 19); font-size: 50px; font-weight: 100; margin: 0px;">Steps:</h1>
+    
+                <ul> 
+                    <li style="color: white; font-size: 20px; font-weight: 400;">Add the start node to the open list.</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">Set g(start) = 0 and f(start) = h(start).</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">While the open list is not empty:</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">&emsp;Select node n with the lowest f(n) = g(n) + h(n).</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">&emsp;If n is the goal node, reconstruct and return path.</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">&emsp;Move n from the open list to the closed list.</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">&emsp;For each neighbor of n:</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">&emsp;&emsp;If neighbor is in closed list, skip.</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">&emsp;&emsp;Calculate g, h, and f for the neighbor.</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">&emsp;&emsp;If neighbor is not in open list, add it.</li>
+                    <br>
+                    <li style="color: white; font-size: 20px; font-weight: 400;">&emsp;&emsp;If already in open list with higher f, update.</li>
+                </ul>
+                
+    
+            </div>
+        </div>
+
+
+        <div class="Visualize-Algorithm">
+            <div class="video-wrapper" style="border-radius: 20px; margin: 0px; width: 700px;">
+                <video autoplay muted loop playsinline style="width: 99%; height: 99%; border-radius: 20px;">
+                    <source src="astarsearch.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="code-panel">
+                <div class="code-header">
+                    <span class="code-title">Visualization and Code Implementation</span>
+                    
+                </div>
+            
+                <pre class="code-content">
+            <code class="language-python">
+import heapq
+
+class Node:
+    def __init__(self, position, g=0, h=0, parent=None):
+        self.position = position  # (x, y)
+        self.g = g  # Cost from start to current node
+        self.h = h  # Heuristic cost to goal
+        self.f = g + h  # Total cost
+        self.parent = parent  # For path reconstruction
+
+    def __lt__(self, other):
+        return self.f < other.f  # Priority Queue uses this
+
+def heuristic(a, b):
+    # Manhattan distance
+    return abs(a[0] - b[0]) + abs(a[1] - b[1])
+
+def astar(grid, start, end):
+    open_set = []
+    closed_set = set()
+
+    start_node = Node(start, g=0, h=heuristic(start, end))
+    heapq.heappush(open_set, start_node)
+
+    while open_set:
+        current = heapq.heappop(open_set)
+
+        if current.position == end:
+            path = []
+            while current:
+                path.append(current.position)
+                current = current.parent
+            return path[::-1]  # reverse
+
+        closed_set.add(current.position)
+
+        for dx, dy in [(-1,0),(1,0),(0,-1),(0,1)]:  # neighbors (up, down, left, right)
+            neighbor_pos = (current.position[0] + dx, current.position[1] + dy)
+
+            if (0 <= neighbor_pos[0] < len(grid) and
+                0 <= neighbor_pos[1] < len(grid[0]) and
+                grid[neighbor_pos[0]][neighbor_pos[1]] == 0 and  # 0 = walkable
+                neighbor_pos not in closed_set):
+
+                g = current.g + 1
+                h = heuristic(neighbor_pos, end)
+                neighbor = Node(neighbor_pos, g, h, parent=current)
+
+                if any(n.position == neighbor.position and n.f <= neighbor.f for n in open_set):
+                    continue  # Already have better path
+
+                heapq.heappush(open_set, neighbor)
+
+    return None  # No path found
+
+# Example usage
+grid = [
+    [0, 0, 0, 0, 1],
+    [1, 1, 0, 1, 0],
+    [0, 0, 0, 0, 0],
+    [0, 1, 1, 1, 0],
+    [0, 0, 0, 1, 0]
+]
+
+start = (0, 0)
+end = (4, 4)
+path = astar(grid, start, end)
+
+print("Shortest Path:", path)
+                
+            </code>
+                </pre>
+            </div>
+            
+        </div>
+
+        <div class="how_Algorithm_Used" style="border-style: dashed; border-color: #000000; border-width: 1px; border-radius: 10px; height: 400px; background-color: #000000; display: flex; padding: 20px; color: white; font-family: Arial, sans-serif;">
+
+            <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="font-size: 30px; margin-bottom:0px">Time Complexity</h3>
+                <h2 style="font-size: 40px; margin-bottom:0px;color:rgb(10, 223, 6)"><strong>O(|E| + |V| log |V|)</strong></h2>
+                  <h3 style="font-size: 25px; margin-bottom:0px"><strong>|V|</strong> = Number of vertices</li>
+                  <h3 style="font-size: 25px;"><strong>|E|</strong> = Number of edges</li>
+              </div>
+              
+
+            <div style="background-color: rgb(201, 147, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+                    .
+            </div>
+          
+            <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="font-size: 30px; margin-bottom:-30px">Pathfinding Speedup</h3>
+                <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(32, 206, 5)"><strong>30X</strong></h2>
+                  <h3 style="font-size: 25px; margin-bottom:0px"><strong>using optimized A* variants compared to basic A*</strong></h3>
+            </div>
+
+            <div style="background-color: rgb(201, 171, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+                .
+            </div>
+          
+            <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <h3 style="font-size: 30px; margin-bottom:-30px">Reduction in Travel Time</h3>
+                <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(3, 209, 30)"><strong>34%</strong></h2>
+                  <h3 style="font-size: 25px; margin-bottom:0px"><strong>Dynamically adjusts routes based on current environmental conditions</strong></h3>
+            </div>
+          
+          </div>
+        
+    </div>
+    <br>
+
+    <h2 style="color: white;">_________________________________________________</h2>
+    <br>
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1 style="color: white; font-size: 40px; font-weight: 700;">Prefix Search: Trie in iOS Keyboard</h1>
+<h2>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</h2>
+
+<div class="Algorithm-container">
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="green_gradient.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="Algorithm-Upper">
+
+        <div class="Understand-Algorithm">
+
+            <h1 style="font-size: 70px; margin: 0px;">
+                The <span class="transparent-text">Trie</span>
+            </h1>
+              
+            <h3>A tree-based data structure used to efficiently store and retrieve keys in a dataset of strings, especially useful for prefix-based queries like autocomplete in Apple's iOS keyboard.</h3>
+            <br>
+            <br>
+            <h1 style="color: white; margin-top: -10px;">Where does Apple Use it?</h1>
+
+            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+
+                <img src="keys_logo.jpg" alt="" style="width: 300px; height: auto; border-radius:20px">
+
+                <div class="simple-card" style="border-style:double;border-color:#000000; border-left: 7px solid #1277f3; width:400px; height:260px; border-radius:40px; padding:20px; margin-left:30px;background-color:rgb(28, 28, 28)">
+                    <h2 style="margin-top:-5px; margin-bottom:-10px; color:rgb(0, 119, 255)">iOS Keyboard</h2>
+                    <ul>
+                        <li style="font-size:20px">Words are stored in a Trie. Each character is a node.</li>
+                        <br>
+                        <li style="font-size:20px">As users type, the keyboard traverses the Trie to suggest completions.</li>
+                        <br>
+                        <li style="font-size:20px">Suggestions are ranked using frequency and recency of usage.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="Algorithm-Steps">
+
+            <h1 style="color: rgb(0, 225, 19); font-size: 50px; font-weight: 100; margin: 0px;">Steps:</h1>
+
+            <ul> 
+                <li style="color: white; font-size: 20px; font-weight: 400;">Start at the root of the Trie.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">For each character in the input, move to the corresponding child node.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">If no child exists, return no suggestions.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Once end of prefix is reached, perform DFS/BFS to collect all valid word completions.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Sort suggestions based on user behavior metrics (frequency, recency).</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Filter suggestions using context such as current app, language, or user location.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Display top-ranked completions as keyboard suggestions in real time.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Update frequency metadata when a suggestion is selected to improve future ranking.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Periodically compress the Trie to optimize space and remove unused paths.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="Visualize-Algorithm" style="background-color: #000000c6;">
+        <div class="video-wrapper" style="border-radius: 20px; margin: 0px; width: 700px;">
+            <img src="trie.gif" alt="" style="height: 380px; width:670px; border-radius:20px">
+        </div>
+        <div class="code-panel">
+            <div class="code-header">
+                <span class="code-title">Visualization and Code Implementation</span>
+            </div>
+        
+            <pre class="code-content">
+        <code class="language-python">
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end = False
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end = True
+
+    def autocomplete(self, prefix):
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return []
+            node = node.children[char]
+        return self._collect_words(node, prefix)
+
+    def _collect_words(self, node, prefix):
+        words = []
+        if node.is_end:
+            words.append(prefix)
+        for char, child in node.children.items():
+            words.extend(self._collect_words(child, prefix + char))
+        return words
+
+# Example usage
+trie = Trie()
+for word in ["hello", "help", "helium", "hero"]:
+    trie.insert(word)
+print(trie.autocomplete("he"))
+        </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="how_Algorithm_Used" style="border-style: dashed; border-color: #000000; border-width: 1px; border-radius: 10px; height: 400px; background-color: #000000; display: flex; padding: 20px; color: white; font-family: Arial, sans-serif;">
+
+        <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:0px">Time Complexity</h3>
+            <h2 style="font-size: 40px; margin-bottom:0px;color:rgb(10, 223, 6)"><strong>O(k)</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px"><strong>k</strong> = Length of the prefix</h3>
+        </div>
+
+        <div style="background-color: rgb(201, 147, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+                .
+        </div>
+    
+        <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:-30px">Typing Speed Increase</h3>
+            <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(32, 206, 5)"><strong>22%</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px"><strong>due to predictive typing from Trie-based suggestions</strong></h3>
+        </div>
+
+        <div style="background-color: rgb(201, 171, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+            .
+        </div>
+    
+        <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:-30px">Memory Efficiency</h3>
+            <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(3, 209, 30)"><strong>35%</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px"><strong>better than storing dictionary as flat list or hash map</strong></h3>
+        </div>
+    </div>
+</div>
+<br>
+
+<h2 style="color: white;">_________________________________________________</h2>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 style="color: white; font-size: 40px; font-weight: 700;">Duplicate Detection: Bloom Filter in iCloud</h1>
+<h2>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</h2>
+
+<div class="Algorithm-container">
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="blue_gradient.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="Algorithm-Upper">
+
+        <div class="Understand-Algorithm">
+
+            <h1 style="font-size: 70px; margin: 0px;">
+                <span class="transparent-text">Bloom Filter</span>
+            </h1>
+              
+            <h3>A probabilistic data structure that helps check whether an element is part of a set using multiple hash functions. Used by Apple in iCloud to detect duplicate files (like photos) without storing the entire dataset in memory.</h3>
+            <br>
+            <br>
+            <h1 style="color: white; margin-top: -10px;">Where does Apple Use it?</h1>
+
+            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+
+                <img src="icloud.png" alt="" style="width: 300px; height: auto;">
+
+                <div class="simple-card" style="border-style:double;border-color:#000000; border-left: 7px solid #1277f3; width:400px; height:260px; border-radius:40px; padding:20px; margin-left:30px;background-color:rgb(28, 28, 28)">
+                    <h2 style="margin-top:-5px; margin-bottom:-10px; color:rgb(0, 119, 255)">iCloud Storage</h2>
+                    <ul>
+                        <li style="font-size:20px">Used to prevent uploading duplicate files and photos.</li>
+                        <br>
+                        <li style="font-size:20px">Efficiently checks for presence of file hashes in cloud records.</li>
+                        <br>
+                        <li style="font-size:20px">Reduces bandwidth and unnecessary cloud storage usage.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="Algorithm-Steps">
+
+            <h1 style="color: rgb(0, 225, 19); font-size: 50px; font-weight: 100; margin: 0px;">Steps:</h1>
+
+            <ul> 
+                <li style="color: white; font-size: 20px; font-weight: 400;">Initialize a bit array of m bits, all set to 0.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Select k independent hash functions.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">To add an element (e.g., a file hash), compute all k hashes and set the corresponding bits to 1.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">To check for an element, compute the same k hashes and check if all corresponding bits are 1.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">If all bits are 1: element is likely in the set (possible false positive).</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">If any bit is 0: element is definitely not in the set.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Use on-device Bloom filter to check before uploading to iCloud.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Periodically sync with cloud version of Bloom filter to keep detection updated.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="Visualize-Algorithm">
+        <div class="video-wrapper" style="border-radius: 20px; margin: 0px; width: 700px;">
+            <img src="bloom.gif" alt="" style="height: 380px; width:670px; border-radius:20px">
+        </div>
+        <div class="code-panel">
+            <div class="code-header">
+                <span class="code-title">Visualization and Code Implementation</span>
+            </div>
+        
+            <pre class="code-content">
+        <code class="language-python">
+import mmh3
+class BloomFilter:
+    def __init__(self, size, hash_count):
+        self.size = size
+        self.hash_count = hash_count
+        self.bit_array = [0] * size
+
+    def add(self, string):
+        for i in range(self.hash_count):
+            index = mmh3.hash(string, i) % self.size
+            self.bit_array[index] = 1
+
+    def check(self, string):
+        for i in range(self.hash_count):
+            index = mmh3.hash(string, i) % self.size
+            if self.bit_array[index] == 0:
+                return False
+        return True
+
+# Example usage
+bf = BloomFilter(1000, 5)
+bf.add("photo_123")
+print(bf.check("photo_123"))  # Likely True
+print(bf.check("photo_999"))  # Likely False or False Positive
+        </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="how_Algorithm_Used" style="border-style: dashed; border-color: #000000; border-width: 1px; border-radius: 10px; height: 400px; background-color: #000000; display: flex; padding: 20px; color: white; font-family: Arial, sans-serif;">
+
+        <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:0px">Time Complexity</h3>
+            <h2 style="font-size: 40px; margin-bottom:0px;color:rgb(10, 223, 6)"><strong>O(k)</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px"><strong>k</strong> = Number of hash functions</h3>
+        </div>
+
+        <div style="background-color: rgb(201, 147, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+                .
+        </div>
+    
+        <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:-30px">Duplicate Upload Reduction</h3>
+            <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(32, 206, 5)"><strong>65%</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px"><strong>fewer redundant uploads with probabilistic filtering</strong></h3>
+        </div>
+
+        <div style="background-color: rgb(201, 171, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+            .
+        </div>
+    
+        <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:-30px">Memory Efficiency</h3>
+            <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(3, 209, 30)"><strong>~10x</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px"><strong>smaller than equivalent hash set</strong></h3>
+        </div>
+    </div>
+</div>
+<br>
+
+<h2 style="color: white;">_________________________________________________</h2>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 style="color: white; font-size: 40px; font-weight: 700;">Memory Optimization: LRU Cache in iOS</h1>
+<h2>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</h2>
+
+<div class="Algorithm-container">
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="red_gradient.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="Algorithm-Upper">
+
+        <div class="Understand-Algorithm" style="background-color:rgb(0,0,0,0.5); border:none">
+
+            <h1 style="font-size: 70px; margin: 0px;">
+                <span class="transparent-text">LRU Cache</span>
+            </h1>
+              
+            <h3>An efficient memory management technique that discards the least recently used items first. Apple uses this strategy to manage backgrounded apps and file caching in iOS and macOS to maintain performance in limited memory environments.</h3>
+            <br>
+            <br>
+            <h1 style="color: white; margin-top: -10px;">Where does Apple Use it?</h1>
+
+            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+
+                <img src="cache_.gif" alt="" style="width: 300px; height: auto; border-radius:20px">
+
+
+                <div class="simple-card" style="border-style:double;border-color:#000000; border-left: 7px solid #1277f3; width:400px; height:230px; border-radius:40px; padding:20px; margin-left:30px;background-color:rgb(28, 28, 28)">
+                    <h2 style="margin-top:-5px; margin-bottom:-10px; color:rgb(0, 119, 255)">Memory Management</h2>
+                    <ul>
+                        <li style="font-size:20px">iOS keeps recently used apps in memory using LRU strategy.</li>
+                        <br>
+                        <li style="font-size:20px">Apps not used recently are purged when memory is needed.</li>
+                        <br>
+                        <li style="font-size:20px">Ensures quick switching while optimizing RAM usage.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="Algorithm-Steps" style="background-color:rgb(0,0,0,0.5); border:none;backdrop-filter: blur(80px);-webkit-backdrop-filter: blur(80px);">
+
+            <h1 style="color: rgb(0, 225, 19); font-size: 50px; font-weight: 100; margin: 0px;">Steps:</h1>
+
+            <ul> 
+                <li style="color: white; font-size: 20px; font-weight: 400;">Use a Hash Map to store keys and pointers to nodes in a Doubly Linked List.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">The list maintains the order of access (most recently used at front).</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">On access (get or put), move the node to the front (most recently used).</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">When adding a new item and capacity is full, remove the last node (least recently used).</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Update both Hash Map and Doubly Linked List accordingly.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">iOS invokes this logic in memory-critical situations or background transitions.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Frequently used apps/data stay cached, enabling faster user experience.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="Visualize-Algorithm">
+        <div class="video-wrapper" style="border-radius: 20px; margin: 0px; width: 700px;">
+            <img src="cache.gif" alt="" style="height: 380px; width:670px; border-radius:20px">
+        </div>
+        <div class="code-panel">
+            <div class="code-header">
+                <span class="code-title">Visualization and Code Implementation</span>
+            </div>
+        
+            <pre class="code-content">
+        <code class="language-python">
+class Node:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+        self.prev = self.next = None
+
+class LRUCache:
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.cache = {}
+        self.head = Node(0, 0)
+        self.tail = Node(0, 0)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def _remove(self, node):
+        p, n = node.prev, node.next
+        p.next, n.prev = n, p
+
+    def _add(self, node):
+        n = self.head.next
+        self.head.next = node
+        node.prev = self.head
+        node.next = n
+        n.prev = node
+
+    def get(self, key):
+        if key in self.cache:
+            node = self.cache[key]
+            self._remove(node)
+            self._add(node)
+            return node.value
+        return -1
+
+    def put(self, key, value):
+        if key in self.cache:
+            self._remove(self.cache[key])
+        node = Node(key, value)
+        self._add(node)
+        self.cache[key] = node
+        if len(self.cache) > self.capacity:
+            lru = self.tail.prev
+            self._remove(lru)
+            del self.cache[lru.key]
+
+# Example usage
+lru = LRUCache(2)
+lru.put(1, 1)
+lru.put(2, 2)
+print(lru.get(1))
+print(lru.get(2))
+lru.put(3, 3)
+print(lru.get(1))  # -1, evicted
+        </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="how_Algorithm_Used" style="border-style: dashed; border-color: #000000; border-width: 1px; border-radius: 10px; height: 400px; background-color: #000000; display: flex; padding: 20px; color: white; font-family: Arial, sans-serif; background-color:rgb(0,0,0,0.5); border:none;">
+
+        <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:0px">Time Complexity</h3>
+            <h2 style="font-size: 40px; margin-bottom:0px;color:rgb(10, 223, 6)"><strong>O(1)</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px">for both get and put operations</h3>
+        </div>
+
+        <div style="background-color: rgb(201, 147, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+                .
+        </div>
+    
+        <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:-30px">Memory Usage Reduction</h3>
+            <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(32, 206, 5)"><strong>33%</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px">less usage by evicting unused processes</h3>
+        </div>
+
+        <div style="background-color: rgb(201, 171, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+            .
+        </div>
+    
+        <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:-30px">App Launch Speed Increase</h3>
+            <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(3, 209, 30)"><strong>27%</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px">for apps stored in the recent LRU queue</h3>
+        </div>
+    </div>
+</div>
+<br>
+
+<h2 style="color: white;">_________________________________________________</h2>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h1 style="color: white; font-size: 40px; font-weight: 700;">Network Clustering: Union-Find in HomeKit</h1>
+<h2>-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-</h2>
+
+<div class="Algorithm-container">
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="purple_gradient.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="Algorithm-Upper">
+
+        <div class="Understand-Algorithm">
+
+            <h1 style="font-size: 70px; margin: 0px;">
+                <span class="transparent-text">Union-Find</span>
+            </h1>
+              
+            <h3>A powerful data structure used to keep track of disjoint sets and dynamically determine if two elements are in the same subset. Apple applies Union-Find in HomeKit mesh networking to manage connected devices and quickly resolve connectivity changes.</h3>
+            <br>
+            <br>
+            <h1 style="color: white; margin-top: -10px;">Where does Apple Use it?</h1>
+
+            <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+
+                <img src="homekit.png" alt="" style="width: 240px; height: auto;">
+
+                <div class="simple-card" style="border-style:double;border-color:#000000; border-left: 7px solid #f3a812; width:400px; height:240px; border-radius:40px; padding:20px; margin-left:30px;background-color:rgb(28, 28, 28)">
+                    <h2 style="margin-top:-5px; margin-bottom:-10px; color:rgb(255, 174, 0)">HomeKit Mesh</h2>
+                    <ul>
+                        <li style="font-size:20px">Tracks which smart home devices are in the same communication cluster.</li>
+                        <br>
+                        <li style="font-size:20px">Handles real-time changes when a device joins or drops from the network.</li>
+                        <br>
+                        <li style="font-size:20px">Optimizes performance and stability for automation and remote access.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="Algorithm-Steps">
+
+            <h1 style="color: rgb(0, 225, 19); font-size: 50px; font-weight: 100; margin: 0px;">Steps:</h1>
+
+            <ul> 
+                <li style="color: white; font-size: 20px; font-weight: 400;">Each device is initially its own set (self parent).</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">To connect two devices, find their roots and perform union if different.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Use path compression during find to flatten the tree structure.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Use union by rank to ensure smaller trees are merged into bigger ones.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Check if two devices are in the same network by comparing their roots.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Trigger reconnection logic or path rerouting when a disconnect occurs.</li>
+                <br>
+                <li style="color: white; font-size: 20px; font-weight: 400;">Periodically rebuild connection map for fault tolerance.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="Visualize-Algorithm">
+        <div class="video-wrapper" style="border-radius: 20px; margin: 0px; width: 700px;">
+            <img src="uf.gif" alt="" style="height: 380px; width:670px; border-radius:20px">
+        </div>
+        <div class="code-panel">
+            <div class="code-header">
+                <span class="code-title">Visualization and Code Implementation</span>
+            </div>
+        
+            <pre class="code-content">
+        <code class="language-python">
+class UnionFind:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.rank = [0] * n
+
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])  # Path compression
+        return self.parent[x]
+
+    def union(self, x, y):
+        root_x = self.find(x)
+        root_y = self.find(y)
+
+        if root_x == root_y:
+            return
+        if self.rank[root_x] < self.rank[root_y]:
+            self.parent[root_x] = root_y
+        elif self.rank[root_x] > self.rank[root_y]:
+            self.parent[root_y] = root_x
+        else:
+            self.parent[root_y] = root_x
+            self.rank[root_x] += 1
+
+    def connected(self, x, y):
+        return self.find(x) == self.find(y)
+
+# Example usage
+uf = UnionFind(5)
+uf.union(0, 1)
+uf.union(2, 3)
+print(uf.connected(0, 1))  # True
+print(uf.connected(1, 2))  # False
+        </code>
+            </pre>
+        </div>
+    </div>
+
+    <div class="how_Algorithm_Used" style="border-style: dashed; border-color: #000000; border-width: 1px; border-radius: 10px; height: 400px; background-color: #000000; display: flex; padding: 20px; color: white; font-family: Arial, sans-serif;">
+
+        <div style="flex: 1; padding: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:0px">Time Complexity</h3>
+            <h2 style="font-size: 40px; margin-bottom:0px;color:rgb(10, 223, 6)"><strong>O(α(n))</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px">α(n) = inverse Ackermann function (very small)</h3>
+        </div>
+
+        <div style="background-color: rgb(201, 147, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+                .
+        </div>
+    
+        <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:-30px">Network Recovery Speed</h3>
+            <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(32, 206, 5)"><strong>92%</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px">faster detection of disconnected devices</h3>
+        </div>
+
+        <div style="background-color: rgb(201, 171, 0); width:5px; height:280px;border-radius:20px;margin-top:60px;margin-right:20px;margin-left:20px">
+            .
+        </div>
+    
+        <div style="flex: 1; padding: 10px; padding-top:0px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <h3 style="font-size: 30px; margin-bottom:-30px">Connectivity Accuracy</h3>
+            <h2 style="font-size: 60px; margin-bottom:0px;color:rgb(3, 209, 30)"><strong>99.99%</strong></h2>
+              <h3 style="font-size: 25px; margin-bottom:0px">stable cluster tracking even under mobility</h3>
+        </div>
+    </div>
+</div>
+<br>
+
+<h2 style="color: white;">_________________________________________________</h2>
+<br>
+<br>
+
+
+
+    <footer class="site-footer">
+        <div class="footer-content">
+        <p>&copy; 2025 Aradhya Gaonkar. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">gaonkararadhya2711@gmail.com</a>
+            <a href="#">+91 9423060856</a>
+            <a href="#">References for Case Studies</a>
+        </div>
+        </div>
+    </footer>
+
+
+    <script src="cs_app.js"></script>
+</body>
+</html>
