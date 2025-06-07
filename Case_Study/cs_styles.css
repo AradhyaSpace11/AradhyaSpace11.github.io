@@ -297,6 +297,7 @@ h3 {
 }
 .Algorithm-Steps{
     background-color: #000000;
+    
     margin: 5px;
     padding: 30px;
     border-radius: 10px;
@@ -304,6 +305,7 @@ h3 {
     height: 630px;
     width: 500px;
 }
+
 .Visualize-Algorithm {
     background-color: #000000;
     background-color: rgba(0, 0, 0, 0.4); /* semi-transparent black */
@@ -318,8 +320,10 @@ h3 {
 .Algorithm-Upper{
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    gap: 7px;
 }
 .code-panel {
     background-color: #000000;
